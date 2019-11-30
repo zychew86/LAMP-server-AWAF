@@ -1,0 +1,29 @@
+<http>
+<head>
+<title>You've been SAML authenticated</title>
+<link rel="stylesheet" type="text/css" href="/basic.css" />
+</head>
+<body>
+<div id='wrap'>
+<div id='content'>
+<table cellpadding=10>
+		<tr><th colspan='2'><h2>Hello <?php echo $_SERVER['REMOTE_USER']; ?></h2></th></tr>
+</table>
+This page is authenticated via SAML authentication.  Your SAML Authorization header looks like:
+<p>
+
+	<?php 
+		$headers = getallheaders();
+		
+		echo wordwrap($headers['Authorization'],75,"<br/>",true);
+	?>
+	
+</p>
+<p>
+Don't BASE64 decode this if you don't want to see your password!
+</p>
+</div>
+</div>
+</body>
+</html>
+

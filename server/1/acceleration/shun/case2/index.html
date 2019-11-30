@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">var timeStart = Date.now();</script>
+
+  <title>1*10MB Images(10.2MB)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+
+<body>
+  <div class="container">
+  <p class="lead">1*10MB (10.2MB)</p>
+  <!-- Images -->
+  <div class="row-fluid"><div class="images_container"></div></div>
+  <p class="small">Note: The Pizigani portolan chart of 1367 in a computer enhanced image of full resolution.This image is in the public domain in the United States, and those countries with a copyright term of life of the author plus 100 years or less.</p>
+  </div>
+  
+  <!-- Modal -->
+  <div id="testResult" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+      <p class="text-center">1*10MB(10.2MB) in...</p>
+      <p class="text-center">
+        <span id="loadTime" class="text-result text-error"></span> sec.
+        (<span id="loadSpeed"></span>Mbps)
+      </p>
+    </div>
+  </div>  
+  
+  <!-- Scripts -->
+  <script type="text/javascript">
+    // insert img tags with random parameter to avoid browser caching
+    // 
+    // <img class="fit_to_size" src="../img/Pizigani_1367_Chart_10MB.jpg?XOEhRUUe4p>
+    //
+    $(document).ready(function() {
+      var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var r = "";
+      for (i=0; i<10; i++) {
+        r += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      var img_tag = '<img class="fit_to_size" src="../img/Pizigani_1367_Chart_10MB.jpg?' + r + '">';
+      if (i % 10 == 0) {
+        img_tag += '<br/>';
+      }
+      $(".images_container").append(img_tag);
+    });
+
+    $(window).load(function() {
+      var loadTime = ((Date.now() - timeStart) / 1000).toFixed(2);
+      var loadSpeed = ((10 * 8) / loadTime).toFixed(2);
+      $('#loadTime').text(loadTime);
+      $('#loadSpeed').text(loadSpeed);
+      
+      // Adding delay before showing result modal. 
+      // No affection to result figures.
+      $(this).delay(750).queue(function() {
+        $('#testResult').modal('show');
+        $(this).dequeue();
+      });
+    });
+  </script>
+</body>
+</html>

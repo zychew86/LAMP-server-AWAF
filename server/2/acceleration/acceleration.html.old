@@ -1,0 +1,124 @@
+<html>
+<head>
+<TITLE>BIG-IP Application Acceleration Manager (AAM) Demo Page</TITLE>
+
+<meta http-equiv="pragma" content="no-cache" />
+
+<!-- Le styles -->
+<link rel="stylesheet" type="text/css" href="basic.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+
+<!-- Script Reference -->
+<script type="text/javascript" src="bootstrap.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+
+</head>
+<body onload='requestinfo()'>
+<p class="nopad"><a href='/'><img src="../images/TopBar.png" alt="Header Bar" border='0'></a></p>
+<p><a href='/'><img src="images/agility-logo.jpg" alt="Logo" border='0'></a></p>
+
+<h2><font face=Arial>Welcome to AGILITY 2014!</font></h2>
+<p><font face=Arial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the BIG-IP AAM Testing Page.  There are multiple examples within this page that will be used during the course to demonstrate the features within BIG-IP AAM and how they optimize applications.  Even within this page there are multiple opportunities for optimization.  Compression, Caching, Minification, Content In-Lining and Image Optimization can all be enabled within BIG-IP to improve performance.<br>
+<br>
+Each optimization is independent of the other.  However there are three "levels" of optimizations:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Fundamental</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Enhanced</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Complete</b></p>
+<br>
+<br>
+
+<!-- HTTP Header Button -->
+<p>Click the button to display the HTTP Response Headers:</p>
+
+<button onclick="myFunction()">HTTP Headers</button>
+
+<script>
+        function myFunction() {
+                var req = new XMLHttpRequest();
+                req.open('GET', document.location, false);
+                req.send(null);
+                var headers = req.getAllResponseHeaders().toLowerCase();
+                alert(headers);
+        }
+</script>
+
+<br>
+<script>
+	function requestinfo() {
+        	var http = new XMLHttpRequest();
+	        http.open('GET', document.location, false);
+                http.send(null);
+                var headers = http.getAllResponseHeaders().toLowerCase();
+
+		var hstring = '<p><font face=Arial size=2 color=black>';
+        	var headerarray = http.getAllResponseHeaders().split("\n");
+        	for(i = 0; i < headerarray.length; i++){
+        	   hstring = hstring+"-&nbsp;"+headerarray[i]+"<br>"; 
+        	}
+        	hstring = hstring+'</p>';
+        	var rhdiv = document.getElementById('responseheaders');
+        	rhdiv.innerHTML = hstring;
+	}
+</script>
+<br>	
+
+<p> HTTP Headers:</p>
+<div id="responseheaders"></div>
+<br>
+
+<h3>Individual Demo Links:</h3>
+<p>
+<a href='shun/case1/index.html'>Many Small Images</a><br>
+<a href='shun/case2/index.html'>One Huge Image</a><br>
+<a href='mod_spdy/index.html'>SPDY Demo with Flags</a><br>
+</p>
+<br>
+<br>
+Chapter 1: Setting up and jacking in<br>
+<img src="images/agility1.jpg"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.1&nbsp;&nbsp;Ready, set...<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.2&nbsp;&nbsp;Go!<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.3&nbsp;&nbsp;Public-access Internet providers<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.4&nbsp;&nbsp;If your town doesn't have direct access<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.5&nbsp;&nbsp;Net origins<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.6&nbsp;&nbsp;How it works<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.7&nbsp;&nbsp;When things go wrong<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1.8&nbsp;&nbsp;FYI<br>
+ <br>
+Chapter 2: E-mail<br>
+<img src="images/agility2.jpg"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.1. The basics<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.2&nbsp;&nbsp;Elm -- a better way<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.3&nbsp;&nbsp;Pine -- even better than Elm<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.4&nbsp;&nbsp;Smileys<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.5&nbsp;&nbsp;Sending e-mail to other networks<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2.6&nbsp;&nbsp;Seven Unix commands you can't live without<br>
+<br>
+Chapter 3: Usenet I<br>
+<img src="images/agility3.jpg"><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.1&nbsp;&nbsp;The global watering hole <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.2&nbsp;&nbsp;Navigating Usenet with nn<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.3&nbsp;&nbsp;nn commands<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.4&nbsp;&nbsp;Using rn<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.5&nbsp;&nbsp;rn commands<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.6&nbsp;&nbsp;Essential newsgroups<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.7&nbsp;&nbsp;Speaking up<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 3.8&nbsp;&nbsp;Cross-posting<br>
+<br>
+Chapter 4:&nbsp;&nbsp;Usenet II<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.1&nbsp;&nbsp;Flame, blather and spew<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.2&nbsp;&nbsp;Killfiles, the cure for what ails you<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.3&nbsp;&nbsp;Some Usenet hints<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.4&nbsp;&nbsp;The Brain-Tumor Boy, the modem tax and the chain letter<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.5&nbsp;&nbsp;Big Sig<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.6&nbsp;&nbsp;The First Amendment as local ordinance<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.7&nbsp;&nbsp;Usenet history<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.8&nbsp;&nbsp;When things go wrong<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 4.9&nbsp;&nbsp;FYI<br>
+<br>
+
+<p><a href='/'><img src="../images/BottomBar.png" alt="Header Bar" border='0'></a></p>
+	
+</body>
+</html>

@@ -1,0 +1,160 @@
+<?php
+header('X-Injected: TestInjected1',false);
+header('X-Injected: TestInjected2',false);
+header('X-Injected: TestInjected3',false);
+header('X-Sensitive-Data: AMEX378282246310005',false);
+header('X-Sensitive-Data: MC5105105105105100',false);
+header('X-Sensitive-Data: Visa4012888888881881',false);
+header('X-Powered-By: ASP.NET-PleaseHackMeWithMicrosoftHackingTools',false);
+?>
+<html>
+<head>
+<title>Site <? echo $_SERVER['HTTP_HOST']; ?> found at <? echo $_SERVER['SERVER_ADDR']; ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="pragma" content="no-cache" />
+<script language="JavaScript" type="text/javascript">
+<!--
+function loadInfo() {
+	var http;
+	if(window.ActiveXObject){
+		http = new ActiveXObject("Microsoft.XMLHTTP");
+	}else if(window.XMLHttpRequest){
+		http = new XMLHttpRequest();
+	}
+	// display headers of current document:
+	http.open('HEAD', location.href, false);
+	http.send();
+
+	var hstring = '<table>';
+	var headerarray = http.getAllResponseHeaders().split("\n");
+	for(i = 0; i < headerarray.length; i++){
+	   hstring = hstring+"<tr><td>"+headerarray[i]+"</td></tr>"; 
+	}
+	hstring = hstring+'</table>';
+	var rhdiv = document.getElementById('responseheaders');
+	rhdiv.innerHTML = hstring;
+	<?php
+	    $addrparts = explode(".",$_SERVER['SERVER_ADDR']);
+	    $vlan = "VLAN1";
+		if($addrparts[2] == "11") {
+			echo "document.getElementById('wrap').style.backgroundColor = '#ffa0a0';";
+		}elseif($addrparts[2] == "12") {
+			echo "document.getElementById('wrap').style.backgroundColor = '#a0ffa0';";
+			$vlan = "VLAN2"	;
+		}elseif($addrparts[2] == "13") {
+			echo "document.getElementById('wrap').style.backgroundColor = '#a0a0ff';";
+			$vlan = "VLAN3"	;
+		}elseif($addrparts[2] == "14") {
+			echo "document.getElementById('wrap').style.backgroundColor = '#ffffa0';";
+			$vlan = "VLAN4";	
+		}			
+	?>
+}
+
+</script>
+<link rel="stylesheet" type="text/css" href="/styles/basic.css" />
+</head>
+<body onload='loadInfo()'>
+<div id="wrap">
+    <div id="header">
+      <table width='100%'>
+	<tr>
+	<td nowrap><h1><span class="sitename-sm"><? echo $_SERVER['HTTP_HOST']; ?> At </span>&nbsp;&nbsp;&nbsp;F5SE Test Host on <?php echo $vlan; ?></h1></td>
+	<td align="right"><img src='/images/f5worldbetter_sm.gif'><br clear="let">Demo Host - Sure Hope You Are Learning Something</td>
+	</tr>
+	</table>
+    </div>
+    <p>
+    <div id="content">
+    <div id="infotable">	
+		<h2>Server Information</h2>
+		<div id='serverinformation'>
+		<table>
+		<?php
+		echo "<tr><td>Server IP Address: ".$_SERVER['SERVER_ADDR']." </td></tr>"; 
+		echo "<tr><td>Server Port: ".$_SERVER['SERVER_PORT']." </td></tr>"; 
+		echo "<tr><td>Clinet IP Address: ".$_SERVER['REMOTE_ADDR']." </td></tr>"; 
+		echo "<tr><td>Client Port: ".$_SERVER['REMOTE_PORT']." </td></tr>"; 
+		echo "<tr><td>Requested URI: ".$_SERVER['REQUEST_URI']." </td></tr>"; 
+		?>
+		</table>
+		<br/>
+		<p><b>Try my other VLANs:</b>
+		<?php
+			if($vlan == "VLAN1") {
+				echo "<ul><li>VLAN2: 10.0.12.$addrparts[3]</li><li>VLAN3: 10.0.13.$addrparts[3]</li><li>VLAN4: 10.0.14.$addrparts[3]</li></ul>";
+			} elseif($vlan == "VLAN2") {
+				echo "<ul><li>VLAN1: 10.0.11.$addrparts[3]</li><li>VLAN3: 10.0.13.$addrparts[3]</li><li>VLAN4: 10.0.14.$addrparts[3]</li></ul>";
+			} elseif($vlan == "VLAN3") {
+				echo "<ul><li>VLAN1: 10.0.11.$addrparts[3]</li><li>VLAN2: 10.0.12.$addrparts[3]</li><li>VLAN4: 10.0.14.$addrparts[3]</li></ul>";
+			} elseif($vlan == "VLAN4") {
+				echo "<ul><li>VLAN1: 10.0.11.$addrparts[3]</li><li>VLAN2: 10.0.12.$addrparts[3]</li><li>VLAN3: 10.0.13.$addrparts[3]</li></ul>";
+			}
+		?>
+		</p>
+		<p>
+		<h2>Routed Mode Setup</h2>
+		<ul>
+		<li>
+		<a href='/defaultgateways.php'>Change a VLAN default route to point to your BIG-IP for Routed Mode (no SNAT)</a>
+		</li>
+		</ul>
+		<h2>Content Examples on This Host</h2>
+		<ul>
+		<li>
+		<a href='/badlinks.html'>Fix Static Content Example</a>
+		</li>
+		<li>
+		<a href='/privatedata.html'>Mask Sensative Content Example</a>
+		</li>
+		<li>
+		<a href='/sessioncookiecontrol.php'>Web Session Example</a>
+		</li>
+		<li>
+		<a href='/sqlinjection.php'>SQL Injection Example</a>
+		</li>
+		<li>
+		<a href='/crosssitescripting.php'>Cross Site Scripting Example</a>
+		</li>
+		<li>
+		<a href='ftp://<?php echo $_SERVER['SERVER_ADDR']; ?>'>FTP to this host</a> (anonymous access only)
+		</li>		
+		</ul>
+			<h2>Authentication Examples <font size='-1'><a href='https://www.f5se.com/help/labinstructions.html#accounts' target='labhep'>Read about LAB and F5SE domain credentials</a></font></h2>
+
+		<ul>
+		<li>
+		<a href='/basic/'>Basic Authentication against the lab.f5se.com or f5se.com Domains</a> (You can use LAB\user or F5SE\user to force the domain)
+		</li>
+		<li>
+		<a href='/ntlm/'>NTLM Authentication against the lab.f5se.com or f5se.com Domains</a> (You can use the LAB\user or F5SE\user to force the domain)
+		</li>				
+		<li>
+		<a href='/radiusauth.php'>RADIUS authentication UDP port 1812</a> (against lab.f5se.com domain)
+		</li>
+		<li>
+		<a href='/ldapauth.php'>LDAP bind authentication</a> (against lab.f5se.com domain)
+		</li>		
+		</ul>
+		</p>
+		</div>
+		<h3>Request Headers Recieved at the Server</h3>
+		<div id='requestheaders'>
+		<table>
+		<?php
+		foreach (getallheaders() as $name => $value) {
+			echo "<tr><td>$name: $value</td></tr>\n";
+		}
+		?>	
+		</table>
+		</div>
+		<h3>Response Headers delivered to the Client</h3>
+		<div id='responseheaders'>
+		</div>
+		<p>&nbsp;</p>
+	</div>	
+	</div>
+	</p>
+	</div>	
+</body>
+</html>

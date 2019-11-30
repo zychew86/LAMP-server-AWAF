@@ -1,0 +1,22 @@
+.fix-to-size {
+  display: inline-block;
+  width: 28px;
+}
+
+.fit_to_size {
+  width: 100%;
+}
+
+.images_container {
+  max-width: 640px;
+}
+
+.text-result {
+  font-size: 3em;
+}
+
+.img-row {
+  display: block;
+  height: 30px;
+  width: 100%;
+}

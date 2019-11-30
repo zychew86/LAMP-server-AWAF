@@ -1,0 +1,102 @@
+<html>
+<head>
+<TITLE>BIG-IP Application Acceleration Manager (AAM) Demo Page</TITLE>
+
+<meta http-equiv="pragma" content="no-cache" />
+
+<!-- Le styles -->
+<link rel="stylesheet" type="text/css" href="basic.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+
+<!-- Script Reference -->
+<script type="text/javascript" src="bootstrap.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+
+</head>
+<body onload='requestinfo()'>
+<p class="nopad"><a href='/'><img src="../images/TopBar.png" alt="Header Bar" border='0'></a></p>
+<p><a href='/'><img src="images/agility-logo.jpg" alt="Logo" border='0'></a></p>
+
+<h2><font face=Arial>Welcome to AGILITY 2014!</font></h2>
+<p><font face=Arial>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the BIG-IP AAM Testing Page.  There are multiple examples within this page that will be used during the course to demonstrate the features within BIG-IP AAM and how they optimize applications.  Even within this page there are multiple opportunities for optimization.  Compression, Caching, Minification, Content In-Lining and Image Optimization can all be enabled within BIG-IP to improve performance.<br>
+<br>
+Each optimization is independent of the other.  However there are three "levels" of optimizations:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Fundamental</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Enhanced</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>Complete</b></p>
+<br>
+<br>
+<h3>Individual Demo Links:</h3>
+<p>
+<a href='shun/case1/index.html'>Many Small Images (SPDY)</a><br>
+<a href='shun/case2/index.html'>One Huge Image</a><br>
+<a href='mod_spdy/index.html'>SPDY Demo with Flags (SPDY)</a><br>
+</p>
+<br>
+<br>
+
+<p><h3>Image 1: Large JPG Image w/ EXIF Data</h3></p><br>
+<p><img src="images/NYC.jpg"></p><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1:&nbsp;&nbsp;Pre-Optimization Info:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format: JPEG (NYC.jpg)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size: 377k<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: Other: It includes EXIF data that can be removed for size and speed improvements<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2:&nbsp;&nbsp;Post Optimization Info::<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: Cool!<br>
+<br>
+
+<p><h3>Image 2: Large JPG Image</h3></p><br>
+<p><img src="images/agility1.jpg"></p><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1:&nbsp;&nbsp;Pre-Optimization Info:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format: JPEG (agility1.jpg)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size: 185k<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2:&nbsp;&nbsp;Post Optimization Info::<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: Tubular!<br>
+<br>
+<br>
+
+<p><h3>Image 3: Large JPG Image</h3></p><br>
+<p><img src="images/agility2.jpg"></p><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1:&nbsp;&nbsp;Pre-Optimization Info:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format: JPEG (agility1.jpg)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size: 185k<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2:&nbsp;&nbsp;Post Optimization Info::<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: Tubular!<br>
+<br>
+<br>
+
+<p><h3>Image 4: BMP to JPG Conversion</h3></p><br>
+<p><img src="images/agility3.bmp"></p><br>
+&nbsp;&nbsp;&nbsp;&nbsp; 1:&nbsp;&nbsp;Pre-Optimization Info:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format: BMP (agility3.bmp)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size: 1.9MB<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 2:&nbsp;&nbsp;Post Optimization Info::<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A: Format?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: Size?<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: Tubular!<br>
+<br>
+<br>
+
+<p><a href='/'><img src="../images/BottomBar.png" alt="Header Bar" border='0'></a></p>
+	
+</body>
+</html>

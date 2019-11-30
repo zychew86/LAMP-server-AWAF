@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">var timeStart = Date.now();</script>
+
+  <title>100*63KB Images(6.2MB)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+
+<body>
+  <div class="container">
+  <p class="lead">100*63KB (6.2MB)</p>
+  <!-- Images -->
+  <div class="row"><div class="images_container"></div></div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="testResult" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+      <p class="text-center">100*63KB(6.2MB) in...</p>
+      <p class="text-center">
+        <span id="loadTime" class="text-result text-error"></span> sec.
+      </p>
+    </div>
+  </div>  
+  
+  <!-- Scripts -->
+  <script type="text/javascript">
+    $(document).ready(function(){            
+      for (i=0; i<10; i++) {
+        divId = "row-" + i;
+        divTag = '<div class="img-row" id="' + divId + '"></div>';
+        
+        $(".images_container").append(divTag);
+        
+        for (j=0; j<10; j++) {
+          // <img class="fix-to-size" src="../img/f5logo.png?XOEhRUUe4p>
+          var imgTag = '<img class="fix-to-size" src="../img/f5logo.png?' + rnd_string()+ '">';        
+          $('#' + divId).append(imgTag);
+        }
+      }
+    });
+
+    $(window).load(function() {
+      var loadTime = ((Date.now() - timeStart) / 1000).toFixed(2);
+      $('#loadTime').text(loadTime);
+      $('#testResult').modal('show');      
+    });
+  </script>
+</body>
+</html>
